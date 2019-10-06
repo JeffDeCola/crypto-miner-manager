@@ -1,0 +1,103 @@
+# crypto-miner-manager pipeline.yml
+
+jobs:
+
+- name: job-readme-github-pages
+  plan:
+  - get: crypto-miner-manager
+    trigger: true
+  - put: resource-slack-alert
+    params:
+      channel: '#jeff-builds'
+      text: "From crypto-miner-manager: STARTED job-readme-github-pages in concourse ci."
+  - put: resource-repo-status
+    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "crypto-miner-manager" }
+  - task: task-readme-github-pages
+    file: crypto-miner-manager/ci/tasks/task-readme-github-pages.yml
+    on_success:
+      do:
+      - put: crypto-miner-manager
+        params:
+          repository: crypto-miner-manager-updated  
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text: "From crypto-miner-manager: PASSED job-readme-github-pages in concourse ci."
+      - put: resource-repo-status
+        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "crypto-miner-manager" }
+    on_failure:
+      do:
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text: "From crypto-miner-manager: FAILED job-readme-github-pages in concourse ci."
+      - put: resource-repo-status
+        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "crypto-miner-manager" }
+
+- name: job-unit-tests
+  plan:
+  - get: crypto-miner-manager
+    trigger: true
+    passed: [job-readme-github-pages]
+  - put: resource-slack-alert
+    params:
+      channel: '#jeff-builds'
+      text: "From crypto-miner-manager: STARTED job-unit-tests in concourse ci."
+  - put: resource-repo-status
+    params: { state: "pending", description: "STARTED job-unit-tests in concourse ci.", commit: "crypto-miner-manager" }
+  - task: task-unit-tests
+    file: crypto-miner-manager/ci/tasks/task-unit-tests.yml
+    on_success:
+      do:
+      - put: crypto-miner-manager
+        params:
+          repository: crypto-miner-manager  
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text_file: coverage-results/test_coverage.txt
+          text: |
+            From crypto-miner-manager: PASSED job-unit-tests in concourse ci. 
+            $TEXT_FILE_CONTENT
+      - put: resource-repo-status
+        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "crypto-miner-manager" }
+    on_failure:
+      do:
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text: "From crypto-miner-manager: FAILED job-unit-tests in concourse ci."
+      - put: resource-repo-status
+        params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "crypto-miner-manager" }
+
+resource_types:
+
+- name: slack-notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+- name: github-status
+  type: docker-image
+  source:
+    repository: dpb587/github-status-resource
+    tag: master
+
+resources:
+
+- name: crypto-miner-manager
+  type: git
+  source:
+    #uri: https://github.com/jeffdecola/crypto-miner-manager
+    uri: git@github.com:jeffdecola/crypto-miner-manager.git
+    branch: master
+    private_key: {{git_private_key}}
+- name: resource-slack-alert
+  type: slack-notification
+  source:
+    url: {{slack_url}} 
+- name: resource-repo-status 
+  type: github-status
+  source:
+    repository: jeffdecola/crypto-miner-manager 
+    access_token: {{repo_github_token}}
