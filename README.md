@@ -24,7 +24,9 @@ Documentation and reference,
 
 ## OVERVIEW
 
-tbd
+Here is an overview of what we're going to do,
+
+![IMAGE - crypto-miner-manager-overview - IMAGE](docs/pics/crypto-miner-manager-overview.jpg)
 
 ## UPDATE GITHUB WEBPAGE USING CONCOURSE (OPTIONAL)
 
