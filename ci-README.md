@@ -22,6 +22,10 @@ The concourse `jobs` and `tasks` are,
   [task-readme-github-pages.yml](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci/tasks/task-readme-github-pages.yml)
   that kicks off shell script
   [readme-github-pages.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci/scripts/readme-github-pages.sh)
+* `job-unit-tests` runs task
+  [task-unit-tests.yml](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci/tasks/task-unit-tests.yml)
+  that kicks off shell script
+  [unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/ci/scripts/unit-tests.sh)
 
 The concourse `resources types` are,
 
