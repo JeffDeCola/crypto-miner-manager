@@ -1,5 +1,5 @@
 #!/bin/sh
-# crypto-miner-managerreadme-github-pages.sh
+# crypto-miner-manager readme-github-pages.sh
 
 echo " "
 
@@ -20,7 +20,7 @@ fi
 echo "GOAL ----------------------------------------------------------------------------------"
 echo " "
 
-echo "The goal is to git clone /crypto-miner-managerto /crypto-miner-manager-updated"
+echo "The goal is to git clone /crypto-miner-manager to /crypto-miner-manager-updated"
 echo "Then script will edit the /docs/_includes/README.md for GITHUB WEBPAGES"
 echo "Finally push the changes in /docs/_includes/README.md to github"
 echo " "
@@ -43,8 +43,8 @@ echo " "
 echo "GIT CLONE -----------------------------------------------------------------------------"
 echo " "
 
-echo "git clone crypto-miner-managerto crypto-miner-manager-updated"
-git clone crypto-miner-managercrypto-miner-manager-updated
+echo "git clone crypto-miner-manager to crypto-miner-manager-updated"
+git clone crypto-miner-manager crypto-miner-manager-updated
 echo " "
 
 echo "cd crypto-miner-manager-updated"
