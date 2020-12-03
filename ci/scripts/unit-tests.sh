@@ -53,7 +53,7 @@ echo "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager"
 echo "mkdir -p src/github.com/JeffDeCola/"
 mkdir -p src/github.com/JeffDeCola/
 echo "cp -R ./crypto-miner-manager src/github.com/JeffDeCola/."
-cp -R ./crypto-miner-managersrc/github.com/JeffDeCola/.
+cp -R ./crypto-miner-manager src/github.com/JeffDeCola/.
 echo " "
 
 echo "cd src/github.com/JeffDeCola/crypto-miner-manager/code"
