@@ -1,0 +1,17 @@
+{
+    "id": "catch-microservice-long-run",
+    "cpus": 0.1,
+    "mem": 4.0,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "forcePullImage": true,
+            "image": "jeffdecola/catch-microservice:latest",
+            "network": "BRIDGE",
+            "portMappings": [{
+                "containerPort": 8080,
+                "hostPort": 0
+            }]
+        }
+    }
+}
