@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# catch-microservice example-01 run.sh
+# crypto-miner-manager example-01 run.sh
 
 echo " "
 

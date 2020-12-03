@@ -1,4 +1,4 @@
 #!/bin/bash
-# catch-microservice destroy-pipeline.sh
+# crypto-miner-managerdestroy-pipeline.sh
 
-fly -t ci destroy-pipeline --pipeline catch-microservice
+fly -t ci destroy-pipeline --pipeline crypto-miner-manager

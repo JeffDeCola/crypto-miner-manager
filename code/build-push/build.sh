@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# catch-microservice build.sh
+# crypto-miner-manager build.sh
 
 echo " "
 
@@ -24,19 +24,19 @@ cd ..
 
 echo "Build your docker image using Dockerfile"
 echo "NOTE: The binary is built using this step"
-echo "docker build -f build-push/Dockerfile -t jeffdecola/catch-microservice ."
-docker build -f build-push/Dockerfile -t jeffdecola/catch-microservice .
+echo "docker build -f build-push/Dockerfile -t jeffdecola/crypto-miner-manager ."
+docker build -f build-push/Dockerfile -t jeffdecola/crypto-miner-manager .
 echo " "
 
 echo "Check Docker Image size"
-echo "docker images jeffdecola/catch-microservice:latest"
-docker images jeffdecola/catch-microservice:latest
+echo "docker images jeffdecola/crypto-miner-manager:latest"
+docker images jeffdecola/crypto-miner-manager:latest
 echo " "
 
 echo "Useful commands:"
-echo "     docker run --name catch-microservice -dit jeffdecola/catch-microservice"
-echo "     docker exec -i -t catch-microservice /bin/bash"
-echo "     docker logs catch-microservice"
+echo "     docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
+echo "     docker exec -i -t crypto-miner-manager /bin/bash"
+echo "     docker logs crypto-miner-manager"
 echo " "
 
 echo "************************************************************************"

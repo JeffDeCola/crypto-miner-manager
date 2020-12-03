@@ -1,88 +1,88 @@
-# catch-microservice pipeline.yml
+# crypto-miner-manager pipeline.yml
 
 jobs:
 
 - name: job-readme-github-pages
   plan:
-  - get: catch-microservice
+  - get: crypto-miner-manager
     trigger: true
   - put: resource-slack-alert
     params:
       channel: '#jeff-builds'
-      text: "From catch-microservice: STARTED job-readme-github-pages in concourse ci."
+      text: "From crypto-miner-manager: STARTED job-readme-github-pages in concourse ci."
   - put: resource-repo-status
-    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "catch-microservice" }
+    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "crypto-miner-manager" }
   - task: task-readme-github-pages
-    file: catch-microservice/ci/tasks/task-readme-github-pages.yml
+    file: crypto-miner-manager/ci/tasks/task-readme-github-pages.yml
     on_success:
       do:
-      - put: catch-microservice
+      - put: crypto-miner-manager
         params:
-          repository: catch-microservice-updated  
+          repository: crypto-miner-manager-updated  
       - put: resource-slack-alert
         params:
           channel: '#jeff-builds'
-          text: "From catch-microservice: PASSED job-readme-github-pages in concourse ci."
+          text: "From crypto-miner-manager: PASSED job-readme-github-pages in concourse ci."
       - put: resource-repo-status
-        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "catch-microservice" }
+        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "crypto-miner-manager" }
     on_failure:
       do:
       - put: resource-slack-alert
         params:
           channel: '#jeff-builds'
-          text: "From catch-microservice: FAILED job-readme-github-pages in concourse ci."
+          text: "From crypto-miner-manager: FAILED job-readme-github-pages in concourse ci."
       - put: resource-repo-status
-        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "catch-microservice" }
+        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "crypto-miner-manager" }
 
 - name: job-unit-tests
   plan:
-  - get: catch-microservice
+  - get: crypto-miner-manager
     trigger: true
     passed: [job-readme-github-pages]
   - put: resource-slack-alert
     params:
       channel: '#jeff-builds'
-      text: "From catch-microservice: STARTED job-unit-tests in concourse ci."
+      text: "From crypto-miner-manager: STARTED job-unit-tests in concourse ci."
   - put: resource-repo-status
-    params: { state: "pending", description: "STARTED job-unit-tests in concourse ci.", commit: "catch-microservice" }
+    params: { state: "pending", description: "STARTED job-unit-tests in concourse ci.", commit: "crypto-miner-manager" }
   - task: task-unit-tests
-    file: catch-microservice/ci/tasks/task-unit-tests.yml
+    file: crypto-miner-manager/ci/tasks/task-unit-tests.yml
     on_success:
       do:
-      - put: catch-microservice
+      - put: crypto-miner-manager
         params:
-          repository: catch-microservice  
+          repository: crypto-miner-manager  
       - put: resource-slack-alert
         params:
           channel: '#jeff-builds'
           text_file: coverage-results/test_coverage.txt
           text: |
-            From catch-microservice: PASSED job-unit-tests in concourse ci. 
+            From crypto-miner-manager: PASSED job-unit-tests in concourse ci. 
             $TEXT_FILE_CONTENT
       - put: resource-repo-status
-        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "catch-microservice" }
+        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "crypto-miner-manager" }
     on_failure:
       do:
       - put: resource-slack-alert
         params:
           channel: '#jeff-builds'
-          text: "From catch-microservice: FAILED job-unit-tests in concourse ci."
+          text: "From crypto-miner-manager: FAILED job-unit-tests in concourse ci."
       - put: resource-repo-status
-        params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "catch-microservice" }
+        params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "crypto-miner-manager" }
 
 - name: job-build-push
   plan:
-    - get: catch-microservice
+    - get: crypto-miner-manager
       trigger: true
       passed: [job-unit-tests]
     - put: resource-slack-alert
       params:
         channel: '#jeff-builds'
-        text: "From catch-microservice: STARTED job-build-push in concourse ci."
+        text: "From crypto-miner-manager: STARTED job-build-push in concourse ci."
     - put: resource-repo-status
-      params: { state: "pending", description: "STARTED job-build-push in concourse ci.", commit: "catch-microservice" }
+      params: { state: "pending", description: "STARTED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
     - task: task-build-push
-      file: catch-microservice/ci/tasks/task-build-push.yml
+      file: crypto-miner-manager/ci/tasks/task-build-push.yml
     - put: resource-dump-to-dockerhub
       params: { build: "dist"}
       on_success:
@@ -90,49 +90,17 @@ jobs:
         - put: resource-slack-alert
           params:
             channel: '#jeff-builds'
-            text: "From catch-microservice: PASSED job-build-push in concourse ci."
+            text: "From crypto-miner-manager: PASSED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "catch-microservice" }
+          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
       on_failure:
         do:
         - put: resource-slack-alert
           params:
             channel: '#jeff-builds'
-            text: "From catch-microservice: FAILED job-build-push in concourse ci."
+            text: "From crypto-miner-manager: FAILED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "catch-microservice" }
-
-- name: job-deploy
-  plan:
-    - get: catch-microservice
-      trigger: true
-      passed: [job-build-push]
-    - put: resource-slack-alert
-      params:
-        channel: '#jeff-builds'
-        text: "From catch-microservice: STARTED job-deploy in concourse ci."
-    - put: resource-repo-status
-      params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "catch-microservice" }
-    - task: task-deploy
-      file: catch-microservice/ci/tasks/task-deploy.yml
-    - put: resource-marathon
-      params: {app_json: "catch-microservice/code/deploy-marathon/app.json", time_out: 10}
-      on_success:
-        do:
-        - put: resource-slack-alert
-          params:
-            channel: '#jeff-builds'
-            text: "From catch-microservice: PASSED job-deploy in concourse ci."
-        - put: resource-repo-status
-          params: { state: "success", description: "PASSED job-deploy in concourse ci.", commit: "catch-microservice" }
-      on_failure:
-        do:
-        - put: resource-slack-alert
-          params:
-            channel: '#jeff-builds'
-            text: "From catch-microservice: FAILED job-deploy in concourse ci."
-        - put: resource-repo-status
-          params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "catch-microservice" }
+          params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
 
 resource_types:
 
@@ -154,17 +122,17 @@ resource_types:
 
 resources:
 
-- name: catch-microservice
+- name: crypto-miner-manager
   type: git
   source:
-    #uri: https://github.com/jeffdecola/catch-microservice
-    uri: git@github.com:jeffdecola/catch-microservice.git
+    #uri: https://github.com/jeffdecola/crypto-miner-manager
+    uri: git@github.com:jeffdecola/crypto-miner-manager.git
     branch: master
     private_key: {{git_private_key}}
 - name: resource-dump-to-dockerhub
   type: docker-image
   source:
-    repository: jeffdecola/catch-microservice
+    repository: jeffdecola/crypto-miner-manager
     tag: latest
     username: jeffdecola
     password: {{dockerhub_password}}
@@ -175,11 +143,6 @@ resources:
 - name: resource-repo-status 
   type: github-status
   source:
-    repository: jeffdecola/catch-microservice 
+    repository: jeffdecola/crypto-miner-manager 
     access_token: {{repo_github_token}}
-- name: resource-marathon
-  type: marathon-deploy
-  source:
-    app_id: catch-microservice-long-run
-    uri: http://192.168.20.117:8080
     

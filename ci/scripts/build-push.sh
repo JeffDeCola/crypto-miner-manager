@@ -1,5 +1,5 @@
 #!/bin/sh
-# catch-microservice build-push.sh
+# crypto-miner-managerbuild-push.sh
 
 echo " "
 
@@ -27,7 +27,7 @@ echo "CHECK THINGS -------------------------------------------------------------
 echo " "
 
 echo "At start, you should be in a /tmp/build/xxxxx directory with two folders:"
-echo "   /catch-microservice"
+echo "   /crypto-miner-manager"
 echo "   /dist (created in task-build-push.yml task file)"
 echo " "
 
@@ -42,8 +42,8 @@ echo "SETUP THE BUILD IN /dist -------------------------------------------------
 echo " "
 
 echo "Copy what you want to make binary of (i.e. go build) into dist"
-echo "cp -r catch-microservice/code/* dist"
-cp -r catch-microservice/code/* dist
+echo "cp -r crypto-miner-manager/code/* dist"
+cp -r crypto-miner-manager/code/* dist
 echo " "
 
 echo "Copy the Dockefile into dist"
@@ -59,14 +59,14 @@ echo " "
 #export GOPATH=$PWD
 #echo " "
 
-#echo "Now we must move our code from the current directory ./catch-microservice to" 
-#echo "$GOPATH/src/github.com/JeffDeCola/catch-microservice"
+#echo "Now we must move our code from the current directory ./crypto-miner-managerto" 
+#echo "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager"
 #mkdir -p src/github.com/JeffDeCola/
-#cp -R ./catch-microservice src/github.com/JeffDeCola/.
+#cp -R ./crypto-miner-managersrc/github.com/JeffDeCola/.
 #echo " "
 
-#echo "cd src/github.com/JeffDeCola/catch-microservice/code"
-#cd src/github.com/JeffDeCola/catch-microservice/code
+#echo "cd src/github.com/JeffDeCola/crypto-miner-manager/code"
+#cd src/github.com/JeffDeCola/crypto-miner-manager/code
 #echo " "
 
 #echo "Check that you are set and everything is in the right place for go:"
@@ -74,8 +74,8 @@ echo " "
 #echo "pwd is: $PWD"
 #ls -la
 
-#echo "Create a binary catch in /bin"
-#go build -o bin/catch main.go
+#echo "Create a binary crypto-miner-manager in /bin"
+#go build -o bin/crypto-miner-manager main.go
 #echo ""
 
 #echo "cd to the /dist directory"
@@ -83,15 +83,15 @@ echo " "
 #echo " "
 
 #echo "cp the binary into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/catch-microservice/code/bin/catch" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/bin/crypto-miner-manager" .
 #echo " "
 
 #echo "cp the Dockerfile into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/catch-microservice/code/build-push/Dockerfile" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/build-push/Dockerfile" .
 #echo " "
 
 #echo "Make it executable by all - chmod +x"
-#chmod +x catch
+#chmod +x crypto-miner-manager
 #echo " "
 
 #echo "List whats in the /dist directory"
