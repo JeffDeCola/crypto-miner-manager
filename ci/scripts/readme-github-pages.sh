@@ -1,5 +1,5 @@
 #!/bin/sh
-# catch-microservice readme-github-pages.sh
+# crypto-miner-managerreadme-github-pages.sh
 
 echo " "
 
@@ -20,7 +20,7 @@ fi
 echo "GOAL ----------------------------------------------------------------------------------"
 echo " "
 
-echo "The goal is to git clone /catch-microservice to /catch-microservice-updated"
+echo "The goal is to git clone /crypto-miner-managerto /crypto-miner-manager-updated"
 echo "Then script will edit the /docs/_includes/README.md for GITHUB WEBPAGES"
 echo "Finally push the changes in /docs/_includes/README.md to github"
 echo " "
@@ -29,8 +29,8 @@ echo "CHECK THINGS -------------------------------------------------------------
 echo " "
 
 echo "At start, you should be in a /tmp/build/xxxxx directory with two folders:"
-echo "   /catch-microservice"
-echo "   /catch-microservice-updated (created in task-build-push.yml task file)"
+echo "   /crypto-miner-manager"
+echo "   /crypto-miner-manager-updated (created in task-build-push.yml task file)"
 echo " "
 
 echo "pwd is: $PWD"
@@ -43,12 +43,12 @@ echo " "
 echo "GIT CLONE -----------------------------------------------------------------------------"
 echo " "
 
-echo "git clone catch-microservice to catch-microservice-updated"
-git clone catch-microservice catch-microservice-updated
+echo "git clone crypto-miner-managerto crypto-miner-manager-updated"
+git clone crypto-miner-managercrypto-miner-manager-updated
 echo " "
 
-echo "cd catch-microservice-updated"
-cd catch-microservice-updated
+echo "cd crypto-miner-manager-updated"
+cd crypto-miner-manager-updated
 echo " "
 
 echo "List whats in the current directory"

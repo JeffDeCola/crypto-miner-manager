@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# catch-microservice push.sh
+# crypto-miner-manager push.sh
 
 echo " "
 
@@ -21,8 +21,8 @@ fi
 echo "Assuming you are logged in, lets push your built docker image to DockerHub"
 echo "To login to docker use:"
 echo "    docker login"
-echo "docker push jeffdecola/catch-microservice"
-docker push jeffdecola/catch-microservice
+echo "docker push jeffdecola/crypto-miner-manager"
+docker push jeffdecola/crypto-miner-manager
 echo " "
 
 echo "************************************************************************"

@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# catch-microservice create-binary.sh
+# crypto-miner-manager create-binary.sh
 
 echo " "
 
@@ -18,9 +18,9 @@ else
     echo " "
 fi
 
-echo "Create a binary catch in /bin"
+echo "Create a binary crypto-miner-manager in /bin"
 echo "    Kick off executable with ./hello.go"
-go build -o catch ../main.go
+go build -o crypto-miner-manager ../crypto-miner-manager.go
 echo " "
 
 echo "************************************************************************"

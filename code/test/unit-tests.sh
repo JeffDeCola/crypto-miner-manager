@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# catch-microservice unit-tests.sh
+# crypto-miner-manager unit-tests.sh
 
 echo " "
 
@@ -19,7 +19,7 @@ else
 fi
 
 echo "If you need to generate _test files run"
-echo "   gotests -w -all main.go"
+echo "   gotests -w -all crypto-miner-manager.go"
 echo " "
 
 echo "cd up to code level"

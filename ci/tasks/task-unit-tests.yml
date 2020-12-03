@@ -1,4 +1,4 @@
-# catch-microservice task-unit-tests.yml
+# crypto-miner-managertask-unit-tests.yml
 
 platform: linux
 
@@ -9,11 +9,11 @@ image_resource:
     tag: 1.15.3
 
 inputs:
-- name: catch-microservice
+- name: crypto-miner-manager
 
 outputs:
 - name: coverage-results
 
 run:
-  path: ./catch-microservice/ci/scripts/unit-tests.sh
+  path: ./crypto-miner-manager/ci/scripts/unit-tests.sh
   # args: [-debug]
