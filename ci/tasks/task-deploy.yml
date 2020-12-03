@@ -1,4 +1,4 @@
-# catch-microservice task-unit-tests.yml
+# catch-microservice task-deploy.yml
 
 platform: linux
 
@@ -11,9 +11,6 @@ image_resource:
 inputs:
 - name: catch-microservice
 
-outputs:
-- name: coverage-results
-
 run:
-  path: ./catch-microservice/ci/scripts/unit-tests.sh
+  path: ./catch-microservice/ci/scripts/deploy.sh
   # args: [-debug]

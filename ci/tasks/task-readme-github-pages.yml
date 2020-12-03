@@ -1,4 +1,4 @@
-# crypto-miner-manager task-readme-github-pages.yml
+# catch-microservice task-readme-github-pages.yml
 
 platform: linux
 
@@ -6,14 +6,14 @@ image_resource:
   type: docker-image
   source:
     repository: golang
-    tag: 1.7.1
+    tag: 1.15.3
 
 inputs:
-- name: crypto-miner-manager
+- name: catch-microservice
 
 outputs:
-- name: crypto-miner-manager-updated
+- name: catch-microservice-updated
 
 run:
-  path: ./crypto-miner-manager/ci/scripts/readme-github-pages.sh
+  path: ./catch-microservice/ci/scripts/readme-github-pages.sh
   # args: [-debug]

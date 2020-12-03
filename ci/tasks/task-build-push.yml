@@ -1,4 +1,4 @@
-# catch-microservice task-unit-tests.yml
+# catch-microservice task-build-push.yml
 
 platform: linux
 
@@ -12,8 +12,9 @@ inputs:
 - name: catch-microservice
 
 outputs:
-- name: coverage-results
+- name: dist
 
 run:
-  path: ./catch-microservice/ci/scripts/unit-tests.sh
+
+  path: ./catch-microservice/ci/scripts/build-push.sh
   # args: [-debug]
