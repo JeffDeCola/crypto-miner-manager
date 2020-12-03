@@ -26,12 +26,19 @@ The concourse `jobs` and `tasks` are,
   [task-unit-tests.yml](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci/tasks/task-unit-tests.yml)
   that kicks off shell script
   [unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/ci/scripts/unit-tests.sh)
+* `job-build-push` runs task
+  [task-build-push.yml](https://github.com/JeffDeCola/catch-microservice/blob/master/ci/tasks/task-build-push.yml)
+  that kicks off shell script
+  [build-push.sh](https://github.com/JeffDeCola/catch-microservice/tree/master/ci/scripts/build-push.sh)
 
 The concourse `resources types` are,
 
 * `crypto-miner-manager` uses a resource type
   [docker-image](https://hub.docker.com/r/concourse/git-resource/)
   to PULL a repo from github
+* `resource-dump-to-dockerhub` uses a resource type
+  [docker-image](https://hub.docker.com/r/concourse/docker-image-resource/)
+  to PUSH a docker image to dockerhub.
 * `resource-slack-alert` uses a resource type
   [docker image](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
   that will notify slack on your progress
