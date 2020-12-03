@@ -1,5 +1,5 @@
 #!/bin/sh
-# crypto-miner-managerunit-tests.sh
+# crypto-miner-manager unit-tests.sh
 
 echo " "
 
@@ -20,7 +20,7 @@ fi
 echo "GOAL ----------------------------------------------------------------------------------"
 echo " "
 
-echo "The goal is to set up a go src/github.com/JeffDeCola/crypto-miner-managerdirectory"
+echo "The goal is to set up a go src/github.com/JeffDeCola/crypto-miner-manager directory"
 echo "Then tests will be run in that directory"
 echo "Test coverage results, text_coverage.txt, will be moved to /coverage-results directory"
 echo " "
@@ -48,11 +48,11 @@ echo "export GOPATH=\$PWD"
 export GOPATH=$PWD
 echo " "
 
-echo "Now we must move our code from the current directory ./crypto-miner-managerto" 
+echo "Now we must move our code from the current directory ./crypto-miner-manager to" 
 echo "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager"
 echo "mkdir -p src/github.com/JeffDeCola/"
 mkdir -p src/github.com/JeffDeCola/
-echo "cp -R ./crypto-miner-managersrc/github.com/JeffDeCola/."
+echo "cp -R ./crypto-miner-manager src/github.com/JeffDeCola/."
 cp -R ./crypto-miner-managersrc/github.com/JeffDeCola/.
 echo " "
 

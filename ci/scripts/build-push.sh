@@ -1,5 +1,5 @@
 #!/bin/sh
-# crypto-miner-managerbuild-push.sh
+# crypto-miner-manager build-push.sh
 
 echo " "
 
@@ -59,10 +59,10 @@ echo " "
 #export GOPATH=$PWD
 #echo " "
 
-#echo "Now we must move our code from the current directory ./crypto-miner-managerto" 
+#echo "Now we must move our code from the current directory ./crypto-miner-manager to" 
 #echo "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager"
 #mkdir -p src/github.com/JeffDeCola/
-#cp -R ./crypto-miner-managersrc/github.com/JeffDeCola/.
+#cp -R ./crypto-miner-manager src/github.com/JeffDeCola/.
 #echo " "
 
 #echo "cd src/github.com/JeffDeCola/crypto-miner-manager/code"
@@ -83,11 +83,11 @@ echo " "
 #echo " "
 
 #echo "cp the binary into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/bin/crypto-miner-manager" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager /code/bin/crypto-miner-manager" .
 #echo " "
 
 #echo "cp the Dockerfile into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/build-push/Dockerfile" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager /code/build-push/Dockerfile" .
 #echo " "
 
 #echo "Make it executable by all - chmod +x"
