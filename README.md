@@ -1,52 +1,42 @@
-# hello-go-deploy-marathon
+# crypto-miner-manager
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/hello-go-deploy-marathon)](https://goreportcard.com/report/github.com/JeffDeCola/hello-go-deploy-marathon)
-[![GoDoc](https://godoc.org/github.com/JeffDeCola/hello-go-deploy-marathon?status.svg)](https://godoc.org/github.com/JeffDeCola/hello-go-deploy-marathon)
-[![Maintainability](https://api.codeclimate.com/v1/badges/24c711ac3a1ec5155969/maintainability)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/maintainability)
-[![Issue Count](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/hello-go-deploy-marathon/issues)
+```text
+*** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
+```
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/crypto-miner-manager)](https://goreportcard.com/report/github.com/JeffDeCola/crypto-miner-manager)
+[![GoDoc](https://godoc.org/github.com/JeffDeCola/crypto-miner-manager?status.svg)](https://godoc.org/github.com/JeffDeCola/crypto-miner-manager)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e4c4da438116f22cb411/maintainability)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/maintainability)
+[![Issue Count](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-_Test, build, push (to DockerHub) and deploy
-a long running "hello-world" Docker Image to Mesos/Marathon._
-
-I also have other repos showing different deployments,
-
-* PaaS
-  * [hello-go-deploy-aws-elastic-beanstalk](https://github.com/JeffDeCola/hello-go-deploy-aws-elastic-beanstalk)
-  * [hello-go-deploy-azure-app-service](https://github.com/JeffDeCola/hello-go-deploy-azure-app-service)
-  * [hello-go-deploy-gae](https://github.com/JeffDeCola/hello-go-deploy-gae)
-  * [hello-go-deploy-marathon](https://github.com/JeffDeCola/hello-go-deploy-marathon)
-    **(You are here)**
-* CaaS
-  * [hello-go-deploy-amazon-ecs](https://github.com/JeffDeCola/hello-go-deploy-amazon-ecs)
-  * [hello-go-deploy-amazon-eks](https://github.com/JeffDeCola/hello-go-deploy-amazon-eks)
-  * [hello-go-deploy-aks](https://github.com/JeffDeCola/hello-go-deploy-aks)
-  * [hello-go-deploy-gke](https://github.com/JeffDeCola/hello-go-deploy-gke)
-* IaaS
-  * [hello-go-deploy-amazon-ec2](https://github.com/JeffDeCola/hello-go-deploy-amazon-ec2)
-  * [hello-go-deploy-azure-vm](https://github.com/JeffDeCola/hello-go-deploy-azure-vm)
-  * [hello-go-deploy-gce](https://github.com/JeffDeCola/hello-go-deploy-gce)
+_Manage all your cryptocurrency miners via a local webpage._
 
 Table of Contents,
 
-* [PREREQUISITES](https://github.com/JeffDeCola/hello-go-deploy-marathon#prerequisites)
-* [RUN](https://github.com/JeffDeCola/hello-go-deploy-marathon#run)
-* [CREATE BINARY](https://github.com/JeffDeCola/hello-go-deploy-marathon#create-binary)
-* [STEP 1 - TEST](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-1---test)
-* [STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-2---build-docker-image-via-dockerfile)
-* [STEP 3 - PUSH (TO DOCKERHUB)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-3---push-to-dockerhub)
-* [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola/hello-go-deploy-marathon#step-4---deploy-to-marathon)
-* [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola/hello-go-deploy-marathon#continuous-integration--deployment)
+* [OVERVIEW](https://github.com/JeffDeCola/crypto-miner-manager#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/crypto-miner-manager#prerequisites)
+* [RUN](https://github.com/JeffDeCola/crypto-miner-manager#run)
+* [CREATE BINARY](https://github.com/JeffDeCola/crypto-miner-manager#create-binary)
+* [STEP 1 - TEST](https://github.com/JeffDeCola/crypto-miner-manager#step-1---test)
+* [STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)](https://github.com/JeffDeCola/crypto-miner-manager#step-2---build-docker-image-via-dockerfile)
+* [STEP 3 - PUSH (TO DOCKERHUB)](https://github.com/JeffDeCola/crypto-miner-manager#step-3---push-to-dockerhub)
+* [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola/crypto-miner-manager#step-4---deploy-to-marathon)
+* [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola/crypto-miner-manager#continuous-integration--deployment)
 
-Documentation and references,
+Documentation and reference,
 
-* The `hello-go-deploy-marathon`
-  [Docker Image](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
-  on DockerHub
+* [crypto-wallet-status](https://github.com/JeffDeCola/crypto-wallet-status)
 
-[GitHub Webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
+[GitHub Webpage](https://jeffdecola.github.io/crypto-miner-manager/)
 _built with
-[concourse ci](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)_
+[concourse ci](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)_
+
+## OVERVIEW
+
+Here is an overview of what we're going to do,
+
+![IMAGE - crypto-miner-manager-overview - IMAGE](docs/pics/crypto-miner-manager-overview.jpg)
 
 ## PREREQUISITES
 
@@ -74,10 +64,10 @@ As a bonus, you can use Concourse CI,
 ## RUN
 
 The following steps are located in
-[run.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/run.sh).
+[run.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/run.sh).
 
 To run
-[main.go](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/main.go)
+[main.go](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/main.go)
 from the command line,
 
 ```bash
@@ -100,19 +90,19 @@ If you want, you can create a binary, but this will not be used since
 it is created during the docker image build.
 
 The following steps are located in
-[create-binary.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/bin/create-binary.sh).
+[create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/bin/create-binary.sh).
 
 ```bash
 cd example-01
-go build -o bin/hello-go main.go
+go build -o bin/crypto-miner main.go
 cd bin
-./hello-go
+./crypto-miner
 ```
 
 ## STEP 1 - TEST
 
 The following steps are located in
-[unit-tests.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/tree/master/example-01/test/unit-tests.sh).
+[unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/example-01/test/unit-tests.sh).
 
 To unit test the code,
 
@@ -131,24 +121,24 @@ gotests -w -all main.go
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
 The following steps are located in
-[build.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/build.sh).
+[build.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/build.sh).
 
 We will be using a multi-stage build using a
-[Dockerfile](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/Dockerfile).
+[Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/Dockerfile).
 The end result will be a very small docker image around 13MB.
 
 ```bash
 cd example-01
-docker build -f build-push/Dockerfile -t jeffdecola/hello-go-deploy-marathon .
+docker build -f build-push/Dockerfile -t jeffdecola/crypto-miner-manager .
 ```
 
 You can check and test this docker image,
 
 ```bash
-docker images jeffdecola/hello-go-deploy-marathon:latest
-docker run --name hello-go-deploy-marathon -dit jeffdecola/hello-go-deploy-marathon
-docker exec -i -t hello-go-deploy-marathon /bin/bash
-docker logs hello-go-deploy-marathon
+docker images jeffdecola/crypto-miner-manager:latest
+docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
+docker exec -i -t crypto-miner-manager /bin/bash
+docker logs crypto-miner-manager
 ```
 
 ### Stage 1
@@ -163,7 +153,7 @@ build the binary in go,
 ```bash
 FROM golang:alpine AS builder
 RUN go get -d -v
-RUN go build -o /go/bin/hello-go-deploy-marathon main.go
+RUN go build -o /go/bin/crypto-miner-manager main.go
 ```
 
 ### Stage 2
@@ -175,7 +165,7 @@ on `alpine`, which is around 13MB.
 ## STEP 3 - PUSH (TO DOCKERHUB)
 
 The following steps are located in
-[push.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/build-push/push.sh).
+[push.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/push.sh).
 
 If you are not logged in, you need to login to dockerhub,
 
@@ -186,28 +176,28 @@ docker login
 Once logged in you can push to DockerHub,
 
 ```bash
-docker push jeffdecola/hello-go-deploy-marathon
+docker push jeffdecola/crypto-miner-manager
 ```
 
 Check the
-[hello-go-deploy-marathon](https://hub.docker.com/r/jeffdecola/hello-go-deploy-marathon)
+[crypto-miner-manager](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
 docker image at DockerHub.
 
 ## STEP 4 - DEPLOY (TO MARATHON)
 
 The following steps are located in
-[deploy.sh](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/deploy-marathon/deploy.sh).
+[deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/deploy-marathon/deploy.sh).
 
-Pull the `hello-go-deploy-marathon` docker image
+Pull the `crypto-miner-manager` docker image
 from DockerHub and deploy to mesos/marathon.
 
 This is actually very simple, you just PUT the
-[app.json](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/example-01/deploy-marathon/app.json)
+[app.json](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/deploy-marathon/app.json)
 file to mesos/marathon. This .json file tells marathon what to do.
 
 ```bash
 cd deploy-marathon
-curl -X PUT http://192.168.20.117:8080/v2/apps/hello-go-long-running \
+curl -X PUT http://192.168.20.117:8080/v2/apps/crypto-miner-long-running \
 -d @app.json \
 -H "Content-type: application/json"
 ```
@@ -215,5 +205,5 @@ curl -X PUT http://192.168.20.117:8080/v2/apps/hello-go-long-running \
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
 
 Refer to
-[ci-README.md](https://github.com/JeffDeCola/hello-go-deploy-marathon/blob/master/ci-README.md)
+[ci-README.md](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)
 for how I automated the above process.
