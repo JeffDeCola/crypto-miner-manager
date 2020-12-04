@@ -26,6 +26,9 @@ Table of Contents,
 
 Documentation and reference,
 
+* The `crypto-miner-manager`
+  [Docker Image](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
+  on DockerHub
 * [crypto-wallet-status](https://github.com/JeffDeCola/crypto-wallet-status)
 
 [GitHub Webpage](https://jeffdecola.github.io/crypto-miner-manager/)
