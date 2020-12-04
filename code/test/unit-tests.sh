@@ -19,7 +19,7 @@ else
 fi
 
 echo "If you need to generate _test files run"
-echo "   gotests -w -all crypto-miner-manager.go"
+echo "   gotests -w -all main.go"
 echo " "
 
 echo "cd up to code level"

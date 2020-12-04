@@ -20,10 +20,11 @@ COPY . .
 RUN ls -lat $GOPATH/src/github.com/jeffdecola/crypto-miner-manager/
 
 # Fetch dependencies using go get
+# RUN go get -u periph.io/x/periph/cmd/...
 RUN go get -d -v
 
 # Build the binary
-RUN go build -o /go/bin/crypto-miner-manager crypto-miner-manager.go
+RUN go build -o /go/bin/crypto-miner-manager main.go
 
 ###############################
 # STAGE 2 build a smaller image
