@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# crypto-miner-manager example-01 run.sh
+# crypto-miner-manager run.sh
 
 echo " "
 

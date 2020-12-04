@@ -74,8 +74,8 @@ echo " "
 #echo "pwd is: $PWD"
 #ls -la
 
-#echo "Create a binary crypto-miner-manager in /bin"
-#go build -o bin/crypto-miner-manager main.go
+#echo "Create a binary crypto-miner in /bin"
+#go build -o bin/crypto-miner main.go
 #echo ""
 
 #echo "cd to the /dist directory"
@@ -83,15 +83,15 @@ echo " "
 #echo " "
 
 #echo "cp the binary into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager /code/bin/crypto-miner-manager" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/bin/crypto-miner" .
 #echo " "
 
 #echo "cp the Dockerfile into /dist"
-#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager /code/build-push/Dockerfile" .
+#cp "$GOPATH/src/github.com/JeffDeCola/crypto-miner-manager/code/build-push/Dockerfile" .
 #echo " "
 
 #echo "Make it executable by all - chmod +x"
-#chmod +x crypto-miner-manager
+#chmod +x crypto-miner
 #echo " "
 
 #echo "List whats in the /dist directory"

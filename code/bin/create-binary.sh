@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# crypto-miner-manager create-binary.sh
+# crypto-miner-manger create-binary.sh
 
 echo " "
 
@@ -18,9 +18,9 @@ else
     echo " "
 fi
 
-echo "Create a binary crypto-miner-manager in /bin"
-echo "    Kick off executable with ./hello.go"
-go build -o crypto-miner-manager ../crypto-miner-manager.go
+echo "Create a binary crypto-miner in /bin"
+echo "    Kick off executable with ./crypto-miner"
+go build -o crypto-miner ../main.go
 echo " "
 
 echo "************************************************************************"

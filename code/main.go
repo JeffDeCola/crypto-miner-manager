@@ -1,4 +1,4 @@
-// catch-microservice example-01 main.go
+// hello-go-deploy-marathon example-01 main.go
 
 package main
 

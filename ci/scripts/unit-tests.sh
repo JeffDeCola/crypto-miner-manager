@@ -69,6 +69,13 @@ echo "ls -la"
 ls -la
 echo " "
 
+echo "GET GO PACKAGES -----------------------------------------------------------------------"
+echo " "
+
+# echo "go get -u periph.io/x/periph/cmd/..."
+# go get -u periph.io/x/periph/cmd/...
+# echo " "
+
 echo "RUN TESTS -----------------------------------------------------------------------------"
 echo " "
 
@@ -77,8 +84,14 @@ echo "go test -cover ./... | tee test/test_coverage.txt"
 echo "   -cover shows the percentage coverage"
 echo "   Put results in /test/test_coverage.txt file"
 go test -cover ./... | tee test/test_coverage.txt
-# echo "Placeholder to run go tests for my-go-examples" | tee testcode/test_coverage.txt
-echo " "
+
+# echo "TEST PLACEHOLDER -----------------------------------------------------------------------"
+# echo " "
+
+# echo "mkdir -p test"
+# mkdir -p test
+# echo "Placeholder to run go tests for crypto-miner-manager" | tee test/test_coverage.txt
+# echo " "
 
 echo "Clean test_coverage.txt file - add some whitespace to the begining of each line"
 echo "sed -i -e 's/^/     /' test/test_coverage.txt"

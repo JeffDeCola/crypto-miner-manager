@@ -70,8 +70,8 @@ echo "    sed -i 's#IMAGE](docs/#IMAGE](#g' temp-README.md"
 sed -i 's#IMAGE](docs/#IMAGE](#g' temp-README.md
 echo "    Update the image links for svgs (if you have them)"
 echo "    Add \"https://raw.githubusercontent.com/JeffDeCola/REPONAME/master/svgs/\" to \"svgs/\""
-echo "    sed -i 's/svgs\//https:\/\/raw.githubusercontent.com\/JeffDeCola\/my-latex-graphs\/master\/svgs\//g' temp-README.md"
-sed -i 's/svgs\//https:\/\/raw.githubusercontent.com\/JeffDeCola\/my-latex-graphs\/master\/svgs\//g' temp-README.md
+echo "    sed -i 's/svgs\//https:\/\/raw.githubusercontent.com\/JeffDeCola\/crypto-miner-manager\/master\/svgs\//g' temp-README.md"
+sed -i 's/svgs\//https:\/\/raw.githubusercontent.com\/JeffDeCola\/crypto-miner-manager\/master\/svgs\//g' temp-README.md
 echo " "
 
 echo "GIT COMMIT OR NOT ---------------------------------------------------------------------"
@@ -94,13 +94,17 @@ then
     echo " "
 else
     echo "    No, it does not exist"
-    echo "    Creating the _includes directory"
-    mkdir docs/_includes
+    echo "    Creating the _includes directory if it doesn't exist"
+    mkdir -p docs/_includes
     echo " "
 fi
 
 if [ "$commit" = "yes" ]
 then
+
+    echo "GIT SETUP -------------------------------------------------------------------------"
+    echo " "
+
     echo "cp temp-README.md docs/_includes/README.md"
     cp temp-README.md docs/_includes/README.md
     echo " "
@@ -112,6 +116,9 @@ then
     git config --global user.name "Jeff DeCola (Concourse)"
     echo " "
     git config --list
+    echo " "
+
+    echo "GIT PUSH MASTER BRANCH ------------------------------------------------------------"
     echo " "
 
     echo "git add and commit what is needed to protect from unforseen issues"

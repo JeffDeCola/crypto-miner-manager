@@ -102,6 +102,38 @@ jobs:
         - put: resource-repo-status
           params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
 
+- name: job-deploy
+  plan:
+    - get: crypto-miner-manager
+      trigger: true
+      passed: [job-build-push]
+    - put: resource-slack-alert
+      params:
+        channel: '#jeff-builds'
+        text: "From crypto-miner-manager: STARTED job-deploy in concourse ci."
+    - put: resource-repo-status
+      params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
+    - task: task-deploy
+      file: crypto-miner-manager/ci/tasks/task-deploy.yml
+    - put: resource-marathon
+      params: {app_json: "crypto-miner-manager/code/deploy-marathon/app.json", time_out: 10}
+      on_success:
+        do:
+        - put: resource-slack-alert
+          params:
+            channel: '#jeff-builds'
+            text: "From crypto-miner-manager: PASSED job-deploy in concourse ci."
+        - put: resource-repo-status
+          params: { state: "success", description: "PASSED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
+      on_failure:
+        do:
+        - put: resource-slack-alert
+          params:
+            channel: '#jeff-builds'
+            text: "From crypto-miner-manager: FAILED job-deploy in concourse ci."
+        - put: resource-repo-status
+          params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
+
 resource_types:
 
 - name: slack-notification
@@ -145,4 +177,9 @@ resources:
   source:
     repository: jeffdecola/crypto-miner-manager 
     access_token: {{repo_github_token}}
+- name: resource-marathon
+  type: marathon-deploy
+  source:
+    app_id: crypto-miner-manager-long-run
+    uri: http://192.168.20.117:8080
     
