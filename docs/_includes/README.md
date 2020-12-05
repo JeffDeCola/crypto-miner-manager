@@ -33,14 +33,14 @@ As a bonus, you can use Concourse CI,
 ## RUN
 
 The following steps are located in
-[run.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/run.sh).
+[run.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/run.sh).
 
 To run
-[main.go](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/main.go)
+[main.go](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/main.go)
 from the command line,
 
 ```bash
-cd example-01
+cd code
 go run main.go
 ```
 
@@ -59,10 +59,10 @@ If you want, you can create a binary, but this will not be used since
 it is created during the docker image build.
 
 The following steps are located in
-[create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/bin/create-binary.sh).
+[create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/bin/create-binary.sh).
 
 ```bash
-cd example-01
+cd code
 go build -o bin/crypto-miner main.go
 cd bin
 ./crypto-miner
@@ -71,12 +71,12 @@ cd bin
 ## STEP 1 - TEST
 
 The following steps are located in
-[unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/example-01/test/unit-tests.sh).
+[unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/code/test/unit-tests.sh).
 
 To unit test the code,
 
 ```bash
-cd example-01
+cd code
 go test -cover ./... | tee test/test_coverage.txt
 cat test/test_coverage.txt
 ```
@@ -90,14 +90,14 @@ gotests -w -all main.go
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
 The following steps are located in
-[build.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/build.sh).
+[build.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/build.sh).
 
 We will be using a multi-stage build using a
-[Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/Dockerfile).
+[Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/Dockerfile).
 The end result will be a very small docker image around 13MB.
 
 ```bash
-cd example-01
+cd code
 docker build -f build-push/Dockerfile -t jeffdecola/crypto-miner-manager .
 ```
 
@@ -134,7 +134,7 @@ on `alpine`, which is around 13MB.
 ## STEP 3 - PUSH (TO DOCKERHUB)
 
 The following steps are located in
-[push.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/build-push/push.sh).
+[push.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/push.sh).
 
 If you are not logged in, you need to login to dockerhub,
 
@@ -155,13 +155,13 @@ docker image at DockerHub.
 ## STEP 4 - DEPLOY (TO MARATHON)
 
 The following steps are located in
-[deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/deploy-marathon/deploy.sh).
+[deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/deploy-marathon/deploy.sh).
 
 Pull the `crypto-miner-manager` docker image
 from DockerHub and deploy to mesos/marathon.
 
 This is actually very simple, you just PUT the
-[app.json](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/example-01/deploy-marathon/app.json)
+[app.json](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/deploy-marathon/app.json)
 file to mesos/marathon. This .json file tells marathon what to do.
 
 ```bash
