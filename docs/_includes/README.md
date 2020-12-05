@@ -13,6 +13,12 @@ I used the following language,
 
 * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
 
+You will need the following go packages,
+
+```bash
+go get -u -v github.com/sirupsen/logrus
+```
+
 To build a docker image you will need docker on your machine,
 
 * [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/builds-deployment-containers/docker-cheat-sheet)
@@ -44,19 +50,17 @@ cd code
 go run main.go
 ```
 
-Every 2 seconds it will print,
+As a placeholder, every 2 seconds it will print,
 
-```bash
-Hello everyone, count is: 1
-Hello everyone, count is: 2
-Hello everyone, count is: 3
-etc...
+```txt
+    INFO[0000] Let's Start this!
+    Hello everyone, count is: 1
+    Hello everyone, count is: 2
+    Hello everyone, count is: 3
+    etc...
 ```
 
 ## CREATE BINARY
-
-If you want, you can create a binary, but this will not be used since
-it is created during the docker image build.
 
 The following steps are located in
 [create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/bin/create-binary.sh).
@@ -68,7 +72,10 @@ cd bin
 ./crypto-miner
 ```
 
-## CONTINUOUS INTEGRATION & DEPLOYMENT
+This binary will not be used during a docker build
+since it creates it's own.
+
+## TEST, BUILD, PUSH & DEPLOY
 
 Refer to
 [ci-README.md](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)
