@@ -20,7 +20,7 @@ COPY . .
 RUN ls -lat $GOPATH/src/github.com/jeffdecola/crypto-miner-manager/
 
 # Fetch dependencies using go get
-# RUN go get -u periph.io/x/periph/cmd/...
+RUN go get -u -v github.com/sirupsen/logrus
 RUN go get -d -v
 
 # Build the binary
