@@ -7,6 +7,9 @@ coverage.out
 # macOS
 .DS_Store
 
+# Windows
+*.jpg:Zone.Identifier
+
 # Ignore binaries
 **/bin/crypto-miner
 
