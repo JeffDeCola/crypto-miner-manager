@@ -4,15 +4,16 @@
 *** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
 ```
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/crypto-miner-manager.svg)](https://pkg.go.dev/github.com/JeffDeCola/crypto-miner-manager)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/crypto-miner-manager)](https://goreportcard.com/report/github.com/JeffDeCola/crypto-miner-manager)
-[![GoDoc](https://godoc.org/github.com/JeffDeCola/crypto-miner-manager?status.svg)](https://godoc.org/github.com/JeffDeCola/crypto-miner-manager)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e4c4da438116f22cb411/maintainability)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/maintainability)
-[![Issue Count](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/issues)
+[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/e4c4da438116f22cb411/maintainability)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/maintainability)
+[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 _Manage all your cryptocurrency miners via a local webpage._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/crypto-miner-manager#overview)
 * [PREREQUISITES](https://github.com/JeffDeCola/crypto-miner-manager#prerequisites)
@@ -24,17 +25,17 @@ Table of Contents,
 * [STEP 4 - DEPLOY (TO MARATHON)](https://github.com/JeffDeCola/crypto-miner-manager#step-4---deploy-to-marathon)
 * [CONTINUOUS INTEGRATION & DEPLOYMENT](https://github.com/JeffDeCola/crypto-miner-manager#continuous-integration--deployment)
 
-Documentation and reference,
+Documentation and Reference
 
 * The
   [crypto-miner-manager](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
   docker image on DockerHub
 * [crypto-wallet-status](https://github.com/JeffDeCola/crypto-wallet-status)
-
-[GitHub Webpage](https://jeffdecola.github.io/crypto-miner-manager/)
-_built with
-[concourse ci](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)_
-
+* This repos
+  [github webpage](https://jeffdecola.github.io/crypto-miner-manager/)
+  _built with
+  [concourse](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)_
+  
 ## OVERVIEW
 
 Here is an overview of what we're going to do,
