@@ -1,4 +1,9 @@
 #!/bin/bash
 # crypto-miner-manager destroy-pipeline.sh
 
-fly -t ci destroy-pipeline --pipeline crypto-miner-manager
+echo " "
+echo "Destroy pipeline on target jeffs-ci-target which is team jeffs-ci-team"
+fly --target jeffs-ci-target \
+    destroy-pipeline \
+    --pipeline crypto-miner-manager
+echo " "
