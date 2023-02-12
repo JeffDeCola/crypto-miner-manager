@@ -28,8 +28,8 @@ echo "CHECK THINGS -------------------------------------------------------------
 echo " "
 
 echo "List whats in the app.json file"
-echo "cat crypto-miner-manager/code/deploy-marathon/app.json"
-cat crypto-miner-manager/code/deploy-marathon/app.json
+echo "cat crypto-miner-manager/miner-manager-code/deploy-marathon/app.json"
+cat crypto-miner-manager/miner-manager-code/deploy-marathon/app.json
 echo " "
 
 echo "DEPLOY DONE IN PIPELINE ---------------------------------------------------------------"
