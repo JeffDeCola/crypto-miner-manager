@@ -1,4 +1,4 @@
-// hello-go-deploy-marathon code main.go
+// crypto-miner-manager code main.go
 
 package main
 

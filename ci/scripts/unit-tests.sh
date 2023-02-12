@@ -56,8 +56,8 @@ echo "cp -R ./crypto-miner-manager src/github.com/JeffDeCola/."
 cp -R ./crypto-miner-manager src/github.com/JeffDeCola/.
 echo " "
 
-echo "cd src/github.com/JeffDeCola/crypto-miner-manager/code"
-cd src/github.com/JeffDeCola/crypto-miner-manager/code
+echo "cd src/github.com/JeffDeCola/crypto-miner-manager/miner-manager-code"
+cd src/github.com/JeffDeCola/crypto-miner-manager/miner-monitor-code
 echo " "
 
 echo "Check that you are set and everything is in the right place for go:"
