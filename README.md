@@ -35,7 +35,7 @@ Documentation and Reference
   [github webpage](https://jeffdecola.github.io/crypto-miner-manager/)
   _built with
   [concourse](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/ci-README.md)_
-  
+
 ## OVERVIEW
 
 Here is an overview of what we're going to do,
