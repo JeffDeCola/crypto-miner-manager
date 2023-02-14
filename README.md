@@ -1,8 +1,4 @@
-# crypto-miner-manager
-
-```text
-*** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
-```
+# CRYPTO MINTER MANAGER
 
 [![Tag Latest](https://badgen.net/github/tag/JeffDeCola/crypto-miner-manager)](https://github.com/JeffDeCola/crypto-miner-manager/tags)
 [![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/crypto-miner-manager.svg)](https://pkg.go.dev/github.com/JeffDeCola/crypto-miner-manager)
@@ -12,6 +8,10 @@
 [![Docker Pulls](https://badgen.net/docker/pulls/jeffdecola/crypto-miner-manager?icon=docker&label=pulls)](https://hub.docker.com/r/jeffdecola/crypto-miner-manager/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+
+```text
+*** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
+```
 
 _Manage all your cryptocurrency miners via a local webpage._
 
