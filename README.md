@@ -1,6 +1,6 @@
 # CRYPTO MINTER MANAGER
 
-[![Tag Latest](https://badgen.net/github/tag/JeffDeCola/crypto-miner-manager)](https://github.com/JeffDeCola/crypto-miner-manager/tags)
+[![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/crypto-miner-manager)](https://github.com/JeffDeCola/crypto-miner-manager/tags)
 [![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/crypto-miner-manager.svg)](https://pkg.go.dev/github.com/JeffDeCola/crypto-miner-manager)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/crypto-miner-manager)](https://goreportcard.com/report/github.com/JeffDeCola/crypto-miner-manager)
 [![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/e4c4da438116f22cb411/maintainability)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/maintainability)
