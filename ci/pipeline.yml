@@ -92,7 +92,7 @@ jobs:
             channel: '#jeff-builds'
             text: "From crypto-miner-manager: PASSED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
+          params: { state: "success", description: "PASSED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
       on_failure:
         do:
         - put: resource-slack-alert
