@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # crypto-miner-manager destroy-pipeline.sh
 
 echo " "

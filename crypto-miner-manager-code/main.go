@@ -1,4 +1,4 @@
-// crypto-miner-manager code main.go
+// crypto-miner-manager main.go
 
 package main
 

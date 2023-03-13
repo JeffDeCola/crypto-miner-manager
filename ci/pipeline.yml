@@ -13,6 +13,7 @@ jobs:
   - put: resource-repo-status
     params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "crypto-miner-manager" }
   - task: task-readme-github-pages
+    # try this
     file: crypto-miner-manager/ci/tasks/task-readme-github-pages.yml
     on_success:
       do:
@@ -92,7 +93,7 @@ jobs:
             channel: '#jeff-builds'
             text: "From crypto-miner-manager: PASSED job-build-push in concourse ci."
         - put: resource-repo-status
-          params: { state: "success", description: "PASSED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
+          params: { state: "pending", description: "PASSED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
       on_failure:
         do:
         - put: resource-slack-alert
@@ -115,8 +116,8 @@ jobs:
       params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
-    - put: resource-marathon
-      params: {app_json: "crypto-miner-manager/code/deploy-marathon/app.json", time_out: 10}
+    - put: resource-deploy-marathon
+      params: {app_json: "crypto-miner-manager/crypto-miner-manager-code/deploy/app.json", time_out: 10}
       on_success:
         do:
         - put: resource-slack-alert
@@ -135,7 +136,6 @@ jobs:
           params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
 
 resource_types:
-
 - name: slack-notification
   type: docker-image
   source:
@@ -161,7 +161,7 @@ resources:
     #uri: https://github.com/jeffdecola/crypto-miner-manager
     uri: git@github.com:jeffdecola/crypto-miner-manager.git
     branch: master
-    private_key: {{git_private_key}}
+    private_key: ((git_private_key))
 - name: resource-dump-to-dockerhub
   type: docker-image
   icon: docker
@@ -169,22 +169,21 @@ resources:
     repository: jeffdecola/crypto-miner-manager
     tag: latest
     username: jeffdecola
-    password: {{dockerhub_password}}
+    password: ((dockerhub_password))
 - name: resource-slack-alert
   type: slack-notification
   icon: slack
   source:
-    url: {{slack_url}} 
+    url: ((slack_url)) 
 - name: resource-repo-status 
   type: github-status
   icon: github
   source:
     repository: jeffdecola/crypto-miner-manager 
-    access_token: {{repo_github_token}}
-- name: resource-marathon
+    access_token: ((repo_github_token))
+- name: resource-deploy-marathon
   type: marathon-deploy
-  icon: server
+  icon: github
   source:
     app_id: crypto-miner-manager-long-run
-    uri: http://192.168.20.117:8080
-    
+    uri: http://localhost:8080
