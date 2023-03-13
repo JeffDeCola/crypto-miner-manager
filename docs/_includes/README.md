@@ -9,44 +9,44 @@ Here is an overview of what we're going to do,
 
 ## PREREQUISITES
 
-I used the following language,
-
-* [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
-
 You will need the following go packages,
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
+go get -u -v github.com/cweill/gotests/...
 ```
 
-To build a docker image you will need docker on your machine,
+## SOFTWARE STACK
 
-* [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/builds-deployment-containers/docker-cheat-sheet)
+* DEVELOPMENT
+  * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+  * gotests
+* OPERATIONS
+  * [concourse/fly](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+    (optional)
+  * [docker](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations/orchestration/builds-deployment-containers/docker-cheat-sheet)
+* SERVICES
+  * [dockerhub](https://hub.docker.com/)
+  * [github](https://github.com/)
 
-To push a docker image you will need,
+Where,
 
-* [DockerHub account](https://hub.docker.com/)
-
-To deploy to `mesos/marathon` you will need,
-
-* [marathon](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/marathon-cheat-sheet)
-* [mesos](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/orchestration/cluster-managers-resource-management-scheduling/mesos-cheat-sheet)
-
-As a bonus, you can use Concourse CI,
-
-* [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet)
+* **GUI**
+  _golang net/http package and ReactJS_
+* **Routing & REST API framework**
+  _golang gorilla/mux package_
+* **Backend**
+  _golang_
+* **Database**
+  _N/A_
 
 ## RUN
 
-The following steps are located in
-[run.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/run.sh).
-
-To run
-[main.go](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/main.go)
-from the command line,
+To
+[run.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/run.sh),
 
 ```bash
-cd code
+cd crypto-miner-manager-code
 go run main.go
 ```
 
@@ -62,14 +62,13 @@ As a placeholder, every 2 seconds it will print,
 
 ## CREATE BINARY
 
-The following steps are located in
-[create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/bin/create-binary.sh).
+To
+[create-binary.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/bin/create-binary.sh),
 
 ```bash
-cd code
-go build -o bin/crypto-miner main.go
-cd bin
-./crypto-miner
+cd crypto-miner-manager-code/bin
+go build -o crypto-miner-manager main.go
+./crypto-miner-manager
 ```
 
 This binary will not be used during a docker build
@@ -77,35 +76,31 @@ since it creates it's own.
 
 ## STEP 1 - TEST
 
-The following steps are located in
-[unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/code/test/unit-tests.sh).
-
-To unit test the code,
+To create unit `_test` files,
 
 ```bash
-cd code
+cd crypto-miner-manager-code
+gotests -w -all main.go
+```
+
+To run
+[unit-tests.sh](https://github.com/JeffDeCola/crypto-miner-manager/tree/master/crypto-miner-manager-code/test/unit-tests.sh),
+
+```bash
 go test -cover ./... | tee test/test_coverage.txt
 cat test/test_coverage.txt
 ```
 
-To create `_test` files,
-
-```bash
-gotests -w -all main.go
-```
-
 ## STEP 2 - BUILD (DOCKER IMAGE VIA DOCKERFILE)
 
-The following steps are located in
-[build.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/build.sh).
-
-We will be using a multi-stage build using a
-[Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/Dockerfile).
-The end result will be a very small docker image around 13MB.
+To
+[build.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/build/build.sh)
+with a
+[Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/build/Dockerfile),
 
 ```bash
-cd code
-docker build -f build-push/Dockerfile -t jeffdecola/crypto-miner-manager .
+cd crypto-miner-manager-code/build
+docker build -f Dockerfile -t jeffdecola/crypto-miner-manager .
 ```
 
 You can check and test this docker image,
@@ -118,11 +113,8 @@ docker logs crypto-miner-manager
 ```
 
 In **stage 1**, rather than copy a binary into a docker image (because
-that can cause issues), **the Dockerfile will build the binary in the
-docker image.**
-
-If you open the DockerFile you can see it will get the dependencies and
-build the binary in go,
+that can cause issues), the Dockerfile will build the binary in the
+docker image,
 
 ```bash
 FROM golang:alpine AS builder
@@ -136,42 +128,31 @@ on `alpine`, which is around 13MB.
 
 ## STEP 3 - PUSH (TO DOCKERHUB)
 
-The following steps are located in
-[push.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/build-push/push.sh).
-
-If you are not logged in, you need to login to dockerhub,
+You must be logged in to DockerHub,
 
 ```bash
 docker login
 ```
 
-Once logged in you can push to DockerHub,
+To
+[push.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/push/push.sh),
 
 ```bash
 docker push jeffdecola/crypto-miner-manager
 ```
 
 Check the
-[crypto-miner-manager](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
-docker image at DockerHub.
+[crypto-miner-manager docker image](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
+at DockerHub.
 
-## STEP 4 - DEPLOY (TO MARATHON)
+## STEP 4 - DEPLOY (TO DOCKER)
 
-The following steps are located in
-[deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/deploy-marathon/deploy.sh).
-
-Pull the `crypto-miner-manager` docker image
-from DockerHub and deploy to mesos/marathon.
-
-This is actually very simple, you just PUT the
-[app.json](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/code/deploy-marathon/app.json)
-file to mesos/marathon. This .json file tells marathon what to do.
+To
+[deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/deploy/deploy.sh),
 
 ```bash
-cd deploy-marathon
-curl -X PUT http://192.168.20.117:8080/v2/apps/crypto-miner-long-running \
--d @app.json \
--H "Content-type: application/json"
+cd crypto-miner-manager-code/deploy
+?????????????????????????
 ```
 
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
