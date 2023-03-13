@@ -8,7 +8,8 @@ then
     echo "************************************************************************"
     echo "* run.sh -debug (START) ************************************************"
     echo "************************************************************************"
-    # set -x enables a mode of the shell where all executed commands are printed to the terminal.
+    # set -x enables a mode of the shell where all executed commands
+    # are printed to the terminal.
     set -x
     echo " "
 else
@@ -24,6 +25,6 @@ go run main.go
 echo " "
 
 echo "************************************************************************"
-echo "* run.sh (END) **************************************************"
+echo "* run.sh (END) *********************************************************"
 echo "************************************************************************"
 echo " "
