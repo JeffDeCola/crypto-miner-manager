@@ -10,8 +10,6 @@ jobs:
       params:
         channel: '#jeff-builds'
         text: "From crypto-miner-manager: STARTED job-deploy in concourse ci."
-    - put: resource-repo-status
-      params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
     - put: resource-deploy-from-dockerhub
@@ -22,16 +20,12 @@ jobs:
           params:
             channel: '#jeff-builds'
             text: "From crypto-miner-manager: PASSED job-deploy in concourse ci."
-        - put: resource-repo-status
-          params: { state: "success", description: "PASSED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
       on_failure:
         do:
         - put: resource-slack-alert
           params:
             channel: '#jeff-builds'
             text: "From crypto-miner-manager: FAILED job-deploy in concourse ci."
-        - put: resource-repo-status
-          params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
 
 resource_types:
 - name: slack-notification
@@ -39,11 +33,6 @@ resource_types:
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
-- name: github-status
-  type: docker-image
-  source:
-    repository: dpb587/github-status-resource
-    tag: master
 
 resources:
 
@@ -60,12 +49,6 @@ resources:
   icon: slack
   source:
     url: ((slack_url)) 
-- name: resource-repo-status 
-  type: github-status
-  icon: github
-  source:
-    repository: jeffdecola/crypto-miner-manager 
-    access_token: ((repo_github_token))
 - name: resource-deploy-from-dockerhub
   type: docker-image
   icon: docker
