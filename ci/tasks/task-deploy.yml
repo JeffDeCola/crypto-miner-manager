@@ -21,4 +21,3 @@ inputs:
 run:
   path: ./crypto-miner-manager/ci/scripts/deploy.sh
   # args: [-debug]
-
