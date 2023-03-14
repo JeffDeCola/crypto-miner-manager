@@ -5,8 +5,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: golang
-    tag: 1.20.1
+    repository: jeffdecola/crypto-miner-manager
+    tag: latest
 
 inputs:
 - name: crypto-miner-manager

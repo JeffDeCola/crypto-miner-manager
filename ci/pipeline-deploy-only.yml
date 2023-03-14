@@ -1,54 +1,20 @@
 # crypto-miner-manager pipeline.yml
 
+#------------------------------------------------------------------------------------------
 jobs:
 
+#**********************************************
 - name: job-deploy
+#**********************************************
   plan:
-    - get: crypto-miner-manager
+    - get: resource-deploy-from-dockerhub
       trigger: true
-    - put: resource-slack-alert
-      params:
-        channel: '#jeff-builds'
-        text: "From crypto-miner-manager: STARTED job-deploy in concourse ci."
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
-    - put: resource-deploy-from-dockerhub
-      # params: ?????????
-      on_success:
-        do:
-        - put: resource-slack-alert
-          params:
-            channel: '#jeff-builds'
-            text: "From crypto-miner-manager: PASSED job-deploy in concourse ci."
-      on_failure:
-        do:
-        - put: resource-slack-alert
-          params:
-            channel: '#jeff-builds'
-            text: "From crypto-miner-manager: FAILED job-deploy in concourse ci."
 
-resource_types:
-- name: slack-notification
-  type: docker-image
-  source:
-    repository: cfcommunity/slack-notification-resource
-    tag: latest
-
+#------------------------------------------------------------------------------------------
 resources:
 
-- name: crypto-miner-manager
-  type: git
-  icon: github
-  source:
-    #uri: https://github.com/jeffdecola/crypto-miner-manager
-    uri: git@github.com:jeffdecola/crypto-miner-manager.git
-    branch: master
-    private_key: ((git_private_key))
-- name: resource-slack-alert
-  type: slack-notification
-  icon: slack
-  source:
-    url: ((slack_url)) 
 - name: resource-deploy-from-dockerhub
   type: docker-image
   icon: docker

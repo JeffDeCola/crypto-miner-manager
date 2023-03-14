@@ -1,8 +1,11 @@
 # crypto-miner-manager pipeline.yml
 
+#------------------------------------------------------------------------------------------
 jobs:
 
+#**********************************************
 - name: job-readme-github-pages
+#**********************************************
   plan:
   - get: crypto-miner-manager
     trigger: true
@@ -35,7 +38,9 @@ jobs:
       - put: resource-repo-status
         params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "crypto-miner-manager" }
 
+#**********************************************
 - name: job-unit-tests
+#**********************************************
   plan:
   - get: crypto-miner-manager
     trigger: true
@@ -71,7 +76,9 @@ jobs:
       - put: resource-repo-status
         params: { state: "failure", description: "FAILED job-unit-tests in concourse ci.", commit: "crypto-miner-manager" }
 
+#**********************************************
 - name: job-build-push
+#**********************************************
   plan:
     - get: crypto-miner-manager
       trigger: true
@@ -103,7 +110,9 @@ jobs:
         - put: resource-repo-status
           params: { state: "failure", description: "FAILED job-build-push in concourse ci.", commit: "crypto-miner-manager" }
 
+#**********************************************
 - name: job-deploy
+#**********************************************
   plan:
     - get: crypto-miner-manager
       trigger: true
@@ -135,23 +144,28 @@ jobs:
         - put: resource-repo-status
           params: { state: "failure", description: "FAILED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
 
+#------------------------------------------------------------------------------------------
 resource_types:
+
 - name: slack-notification
   type: docker-image
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
+
 - name: github-status
   type: docker-image
   source:
     repository: dpb587/github-status-resource
     tag: master
+
 - name: marathon-deploy
   type: docker-image
   source:
    repository: ckaznocha/marathon-resource
    tag: latest
 
+#------------------------------------------------------------------------------------------
 resources:
 
 - name: crypto-miner-manager
@@ -162,6 +176,7 @@ resources:
     uri: git@github.com:jeffdecola/crypto-miner-manager.git
     branch: master
     private_key: ((git_private_key))
+
 - name: resource-dump-to-dockerhub
   type: docker-image
   icon: docker
@@ -170,17 +185,20 @@ resources:
     tag: latest
     username: jeffdecola
     password: ((dockerhub_password))
+
 - name: resource-slack-alert
   type: slack-notification
   icon: slack
   source:
     url: ((slack_url)) 
+
 - name: resource-repo-status 
   type: github-status
   icon: github
   source:
     repository: jeffdecola/crypto-miner-manager 
     access_token: ((repo_github_token))
+
 - name: resource-deploy-from-dockerhub
   type: docker-image
   icon: docker
