@@ -46,7 +46,8 @@ chmod 600 private-key-file.txt
 echo " "
 
 echo "docker run"
-ssh -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
+ssh -o StrictHostKeyChecking=no \
+    -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
     'docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager'
 echo " "
 
