@@ -47,6 +47,7 @@ echo "$DOCKER_HOST_USER"
 echo "$DOCKER_HOST_IP"
 echo " "
 
+echo "Put private key in temp file"
 echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" >> private-key-file.txt
 cat private-key-file.txt
 chmod 600 private-key-file.txt
@@ -62,7 +63,7 @@ echo "rm private-key-file.txt"
 rm private-key-file.txt
 echo " "
 
-echo "You can run docker command such as:"
+echo "You can now run docker commands such as:"
 echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
 echo "docker exec -i -t crypto-miner-manager /bin/bash"
 echo "docker logs crypto-miner-manager"
