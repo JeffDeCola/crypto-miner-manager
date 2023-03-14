@@ -20,7 +20,7 @@ else
 fi
 
 echo "Deploy to Docker"
-# DO SOMETHING HERE
+docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
 echo " "
 
 echo "************************************************************************"

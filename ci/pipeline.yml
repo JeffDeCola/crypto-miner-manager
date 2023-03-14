@@ -116,8 +116,8 @@ jobs:
       params: { state: "pending", description: "STARTED job-deploy in concourse ci.", commit: "crypto-miner-manager" }
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
-    - put: resource-deploy-marathon
-      params: {app_json: "crypto-miner-manager/crypto-miner-manager-code/deploy/app.json", time_out: 10}
+    - put: resource-deploy-from-dockerhub
+      # params: ?????????
       on_success:
         do:
         - put: resource-slack-alert
@@ -181,9 +181,9 @@ resources:
   source:
     repository: jeffdecola/crypto-miner-manager 
     access_token: ((repo_github_token))
-- name: resource-deploy-marathon
-  type: marathon-deploy
-  icon: github
+- name: resource-deploy-from-dockerhub
+  type: docker-image
+  icon: docker
   source:
-    app_id: crypto-miner-manager-long-run
-    uri: http://localhost:8080
+    repository: jeffdecola/crypto-miner-manager
+    tag: latest

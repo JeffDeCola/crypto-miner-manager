@@ -11,10 +11,10 @@ coverage.out
 *.jpg:Zone.Identifier
 
 # Ignore binaries
-**/bin/crypto-miner
+**/bin/crypto-miner-manager
 
 # Ignore test coverage
 **/test/test_coverage.txt
 
 # Ignore binary used for docker build
-**/build-push/crypto-miner
+**/build-push/crypto-miner-manager
