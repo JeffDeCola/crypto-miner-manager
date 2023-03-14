@@ -40,6 +40,13 @@ echo " "
 echo "DOCKER RUN ----------------------------------------------------------------------------"
 echo " "
 
+echo "hi----------------------"
+echo "$DOCKER_HOST_SSH_PRIVATE_KEY"
+echo "$DOCKER_HOST_PORT"
+echo "$DOCKER_HOST_USER"
+echo "$DOCKER_HOST_IP"
+echo "bye----------------------"
+
 echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" > private-key-file.txt
 cat private-key-file.txt
 chmod 600 private-key-file.txt
