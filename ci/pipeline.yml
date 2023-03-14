@@ -224,8 +224,8 @@ resource_types:
   - name: marathon-deploy
     type: docker-image
     source:
-    repository: ckaznocha/marathon-resource
-    tag: latest
+      repository: ckaznocha/marathon-resource
+      tag: latest
 
 #------------------------------------------------------------------------------------------
 resources:

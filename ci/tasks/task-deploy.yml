@@ -16,7 +16,7 @@ params:
   DOCKER_HOST_IP: "will be replaced"
 
 inputs:
-- name: crypto-miner-manager
+  - name: crypto-miner-manager
 
 run:
   path: ./crypto-miner-manager/ci/scripts/deploy.sh
