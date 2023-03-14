@@ -9,11 +9,13 @@ image_resource:
     repository: golang
     tag: 1.20.1
 
+params:
+  SSH_DOCKER_HOST_PRIVATE_KEY: "this will be overwritten"
+
 inputs:
 - name: crypto-miner-manager
 
 run:
   path: ./crypto-miner-manager/ci/scripts/deploy.sh
   # args: [-debug]
-  params:
-    SSH_DOCKER_HOST_PRIVATE_KEY: "this will be overwritten"
+
