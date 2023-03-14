@@ -7,13 +7,22 @@ jobs:
 - name: job-deploy
 #**********************************************
   plan:
-    - get: resource-deploy-from-dockerhub
+    - get: crypto-miner-manager
       trigger: true
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
 
 #------------------------------------------------------------------------------------------
 resources:
+
+- name: crypto-miner-manager
+  type: git
+  icon: github
+  source:
+    #uri: https://github.com/jeffdecola/crypto-miner-manager
+    uri: git@github.com:jeffdecola/crypto-miner-manager.git
+    branch: master
+    private_key: ((git_private_key))
 
 - name: resource-deploy-from-dockerhub
   type: docker-image
