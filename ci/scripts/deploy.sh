@@ -47,7 +47,7 @@ echo "$DOCKER_HOST_USER"
 echo "$DOCKER_HOST_IP"
 echo "bye----------------------"
 
-echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" > private-key-file.txt
+echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" >> private-key-file.txt
 cat private-key-file.txt
 chmod 600 private-key-file.txt
 echo " "
