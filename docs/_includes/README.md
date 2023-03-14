@@ -67,7 +67,7 @@ To
 
 ```bash
 cd crypto-miner-manager-code/bin
-go build -o crypto-miner-manager main.go
+go build -o crypto-miner-manager ../main.go
 ./crypto-miner-manager
 ```
 
@@ -99,8 +99,8 @@ with a
 [Dockerfile](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/build/Dockerfile),
 
 ```bash
-cd crypto-miner-manager-code/build
-docker build -f Dockerfile -t jeffdecola/crypto-miner-manager .
+cd crypto-miner-manager-code
+docker build -f build/Dockerfile -t jeffdecola/crypto-miner-manager .
 ```
 
 You can check and test this docker image,
@@ -151,8 +151,10 @@ To
 [deploy.sh](https://github.com/JeffDeCola/crypto-miner-manager/blob/master/crypto-miner-manager-code/deploy/deploy.sh),
 
 ```bash
-cd crypto-miner-manager-code/deploy
-?????????????????????????
+cd crypto-miner-manager-code
+docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
+docker exec -i -t crypto-miner-manager /bin/bash
+docker logs crypto-miner-manager
 ```
 
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
