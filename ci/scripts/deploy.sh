@@ -21,13 +21,12 @@ echo "GOAL ---------------------------------------------------------------------
 echo " "
 
 echo "The goal is to deploy docker image to docker"
-echo "This is done in the ????? resource"
+
+echo "DOCKER RUN ----------------------------------------------------------------------------"
 echo " "
 
-echo "DEPLOY DONE IN PIPELINE ---------------------------------------------------------------"
-echo " "
-
-echo "The concourse pipeline will ??????"
+echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
+docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
 echo " "
 
 echo "deploy.sh (END)"

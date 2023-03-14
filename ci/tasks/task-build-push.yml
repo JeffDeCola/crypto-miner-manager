@@ -15,6 +15,5 @@ outputs:
 - name: dist
 
 run:
-
   path: ./crypto-miner-manager/ci/scripts/build-push.sh
   # args: [-debug]
