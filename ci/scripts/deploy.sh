@@ -41,7 +41,7 @@ echo "DOCKER RUN ---------------------------------------------------------------
 echo " "
 
 echo "hi----------------------"
-echo "$DOCKER_HOST_SSH_PRIVATE_KEY"
+echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE"
 echo "$DOCKER_HOST_PORT"
 echo "$DOCKER_HOST_USER"
 echo "$DOCKER_HOST_IP"

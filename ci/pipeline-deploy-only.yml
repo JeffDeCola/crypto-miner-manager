@@ -14,7 +14,7 @@ jobs:
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
       params:
-        DOCKER_HOST_SSH_PRIVATE_KEY: {{docker_host_ssh_private_key}}
+        DOCKER_HOST_SSH_PRIVATE_KEY_FILE: {{docker_host_ssh_private_key_file}}
         DOCKER_HOST_PORT: '22'
         DOCKER_HOST_USER: 'jeffry'
         DOCKER_HOST_IP: '192.168.20.122'

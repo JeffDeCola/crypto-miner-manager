@@ -8,6 +8,5 @@ fly --target jeffs-ci-target \
     --pipeline crypto-miner-manager-deploy \
     --config pipeline-deploy-only.yml \
     --load-vars-from ../../../.credentials.yml \
-    --var "private-key-file=$(cat ~/.ssh/id_rsa | base64)" \
     --check-creds
 echo " "
