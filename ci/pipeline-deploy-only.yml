@@ -14,7 +14,10 @@ jobs:
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
       params:
-         SSH_DOCKER_HOST_PRIVATE_KEY: {{ssh_docker_host_private_key}}
+        DOCKER_HOST_SSH_PRIVATE_KEY: {{docker_host_ssh_private_key}}
+        DOCKER_HOST_PORT: '22'
+        DOCKER_HOST_USER: 'jeff'
+        DOCKER_HOST_IP: '192.168.20.122'
 
 #------------------------------------------------------------------------------------------
 resources:
@@ -27,11 +30,3 @@ resources:
     uri: git@github.com:jeffdecola/crypto-miner-manager.git
     branch: master
     private_key: ((git_private_key))
-
-
-#- name: resource-deploy-from-dockerhub
-#  type: docker-image
-#  icon: docker
-#  source:
-#    repository: jeffdecola/crypto-miner-manager
-#    tag: latest
