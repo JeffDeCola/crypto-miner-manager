@@ -24,9 +24,10 @@ resources:
     branch: master
     private_key: ((git_private_key))
 
-- name: resource-deploy-from-dockerhub
-  type: docker-image
-  icon: docker
-  source:
-    repository: jeffdecola/crypto-miner-manager
-    tag: latest
+
+#- name: resource-deploy-from-dockerhub
+#  type: docker-image
+#  icon: docker
+#  source:
+#    repository: jeffdecola/crypto-miner-manager
+#    tag: latest

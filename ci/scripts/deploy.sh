@@ -21,9 +21,23 @@ echo "GOAL ---------------------------------------------------------------------
 echo " "
 
 echo "The goal is to deploy docker image to docker"
+echo " "
+
+echo "CHECK THINGS --------------------------------------------------------------------------"
+echo " "
+
+echo "At start, you should be in a /tmp/build/xxxxx directory with two folders:"
+echo "   /crypto-miner-manager"
+echo " "
+
+echo "pwd is: $PWD"
+echo " "
 
 echo "DOCKER RUN ----------------------------------------------------------------------------"
 echo " "
+
+cd crypto-miner-manager
+ls -lat
 
 echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
 docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
