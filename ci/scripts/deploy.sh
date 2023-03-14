@@ -40,16 +40,21 @@ echo " "
 echo "DOCKER RUN ----------------------------------------------------------------------------"
 echo " "
 
-############################????? cd crypto-miner-manager
-ls -lat
-
-echo $SSH_DOCKER_HOST_PRIVATE_KEY
-
-echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
-docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
+echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" > private-key-file.txt
+cat private-key-file.txt
+chmod 600 private-key-file.txt
 echo " "
 
-echo " You can run command such as"
+echo "docker run"
+ssh -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
+    'docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager'
+echo " "
+
+echo "rm private-key-file.txt"
+rm private-key-file.txt
+echo " "
+
+echo "You can run docker command such as:"
 echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
 echo "docker exec -i -t crypto-miner-manager /bin/bash"
 echo "docker logs crypto-miner-manager"

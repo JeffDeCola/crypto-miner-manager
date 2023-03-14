@@ -10,7 +10,10 @@ image_resource:
     tag: 1.20.1
 
 params:
-  SSH_DOCKER_HOST_PRIVATE_KEY: "this will be overwritten"
+  DOCKER_HOST_SSH_PRIVATE_KEY: "will be replaced"
+  DOCKER_HOST_PORT: "will be replaced"
+  DOCKER_HOST_USER: "will be replaced"
+  DOCKER_HOST_IP: "will be replaced"
 
 inputs:
 - name: crypto-miner-manager
