@@ -1,4 +1,4 @@
-// hello-go-deploy-marathon example-01 main_test.go
+// crypto-miner-manager main.go
 
 package main
 
