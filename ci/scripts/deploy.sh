@@ -53,16 +53,18 @@ cat private-key-file.txt
 chmod 600 private-key-file.txt
 echo " "
 
-echo "docker stop crypto-miner-manager  2> /dev/null"
+echo "Stop old container if it exists - Ignore if you get an error"
+echo "docker stop crypto-miner-manager || true "
 ssh -o StrictHostKeyChecking=no \
     -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
-    'docker stop crypto-miner-manager  2> /dev/null'
+    'docker stop crypto-miner-manager || true'
 echo " "
 
-echo "docker rm crypto-miner-manager  2> /dev/null"
+echo "Remove old container if it exsits - Ignore if you get an error"
+echo "docker rm crypto-miner-manager || true"
 ssh -o StrictHostKeyChecking=no \
     -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
-    'docker rm crypto-miner-manager  2> /dev/null'
+    'docker rm crypto-miner-manager || true'
 echo " "
 
 echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
