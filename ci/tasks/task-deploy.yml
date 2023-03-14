@@ -2,7 +2,7 @@
 
 platform: linux
 
-# DOCKER BASE IMAGE FOR TASKS (BASED ON APLPINE, A SMALLER LINUX DISTRIBUTION)
+# DOCKER BASE IMAGE FOR TASKS (BASED ON ALPINE, A SMALLER LINUX DISTRIBUTION)
 image_resource:
   type: docker-image
   source:
@@ -15,3 +15,5 @@ inputs:
 run:
   path: ./crypto-miner-manager/ci/scripts/deploy.sh
   # args: [-debug]
+  params:
+    SSH_DOCKER_HOST_PRIVATE_KEY: "this will be overwritten"
