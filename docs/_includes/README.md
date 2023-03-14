@@ -110,6 +110,7 @@ docker images jeffdecola/crypto-miner-manager:latest
 docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
 docker exec -i -t crypto-miner-manager /bin/bash
 docker logs crypto-miner-manager
+docker rm -f crypto-miner-manager
 ```
 
 In **stage 1**, rather than copy a binary into a docker image (because
@@ -155,6 +156,7 @@ cd crypto-miner-manager-code
 docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
 docker exec -i -t crypto-miner-manager /bin/bash
 docker logs crypto-miner-manager
+docker rm -f crypto-miner-manager
 ```
 
 ## CONTINUOUS INTEGRATION & DEPLOYMENT
