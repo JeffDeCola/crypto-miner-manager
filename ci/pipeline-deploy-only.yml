@@ -7,10 +7,14 @@ jobs:
 - name: job-deploy
 #**********************************************
   plan:
+    # GET REPO FROM GITHUB
     - get: crypto-miner-manager
       trigger: true
+    # RUN TASK IN REPO USING ALPINE DOCKER IMAGE 
     - task: task-deploy
       file: crypto-miner-manager/ci/tasks/task-deploy.yml
+      params:
+         SSH_DOCKER_HOST_PRIVATE_KEY: {{ssh_docker_host_private_key}}
 
 #------------------------------------------------------------------------------------------
 resources:

@@ -33,14 +33,27 @@ echo " "
 echo "pwd is: $PWD"
 echo " "
 
+echo "List whats in the current directory"
+ls -la
+echo " "
+
 echo "DOCKER RUN ----------------------------------------------------------------------------"
 echo " "
 
-cd crypto-miner-manager
+############################????? cd crypto-miner-manager
 ls -lat
+
+echo $SSH_DOCKER_HOST_PRIVATE_KEY
 
 echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
 docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager
+echo " "
+
+echo " You can run command such as"
+echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
+echo "docker exec -i -t crypto-miner-manager /bin/bash"
+echo "docker logs crypto-miner-manager"
+echo "docker rm -f crypto-miner-manager"
 echo " "
 
 echo "deploy.sh (END)"
