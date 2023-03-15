@@ -221,12 +221,6 @@ resource_types:
       repository: dpb587/github-status-resource
       tag: master
 
-  - name: marathon-deploy
-    type: docker-image
-    source:
-      repository: ckaznocha/marathon-resource
-      tag: latest
-
 #------------------------------------------------------------------------------------------
 resources:
 
