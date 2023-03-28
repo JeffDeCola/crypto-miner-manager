@@ -37,52 +37,5 @@ echo "List whats in the current directory"
 ls -la
 echo " "
 
-echo "DOCKER RUN ----------------------------------------------------------------------------"
-echo " "
-
-echo "DOCKER HOST INFO:"
-# echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE"
-echo "$DOCKER_HOST_PORT"
-echo "$DOCKER_HOST_USER"
-echo "$DOCKER_HOST_IP"
-echo " "
-
-echo "Put private key in temp file"
-echo "$DOCKER_HOST_SSH_PRIVATE_KEY_FILE" >> private-key-file.txt
-cat private-key-file.txt
-chmod 600 private-key-file.txt
-echo " "
-
-echo "Stop old container if it exists - Ignore if you get an error"
-echo "docker stop crypto-miner-manager || true "
-ssh -o StrictHostKeyChecking=no \
-    -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
-    'docker stop crypto-miner-manager || true'
-echo " "
-
-echo "Remove old container if it exsits - Ignore if you get an error"
-echo "docker rm crypto-miner-manager || true"
-ssh -o StrictHostKeyChecking=no \
-    -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
-    'docker rm crypto-miner-manager || true'
-echo " "
-
-echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
-ssh -o StrictHostKeyChecking=no \
-    -i private-key-file.txt -p "$DOCKER_HOST_PORT" "$DOCKER_HOST_USER"@"$DOCKER_HOST_IP" \
-    'docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager'
-echo " "
-
-echo "rm private-key-file.txt"
-rm private-key-file.txt
-echo " "
-
-echo "You can now run docker commands such as:"
-echo "docker run --name crypto-miner-manager -dit jeffdecola/crypto-miner-manager"
-echo "docker exec -i -t crypto-miner-manager /bin/bash"
-echo "docker logs crypto-miner-manager"
-echo "docker rm -f crypto-miner-manager"
-echo " "
-
 echo "deploy.sh (END)"
 echo " "
