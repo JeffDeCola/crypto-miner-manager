@@ -180,7 +180,6 @@ jobs:
       # TASK SUCCESS
       on_success:
         do:
-
           # DEPLOY DOCKER IMAGE TO DOCKER HOST
           - put: resource-deploy-docker
             params:
@@ -189,7 +188,6 @@ jobs:
               DOCKER_HOST_USER: 'jeffry'
               DOCKER_HOST_IP: '192.168.20.122'
               DOCKER_IMAGE_TO_DEPLOY: 'jeffdecola/crypto-miner-manager'
-
           # SEND SLACK ALERT  
           - put: resource-slack-alert
             params:
