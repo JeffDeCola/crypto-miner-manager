@@ -10,7 +10,7 @@
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 ```text
-*** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
+** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON **
 ```
 
 _Manage all your cryptocurrency miners via a local webpage._
