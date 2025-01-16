@@ -1,8 +1,7 @@
-# CONCOURSE
-.credentials.yml
+# golang-build.gitignore
 
-# GO
-coverage.out
+# CONCOURSE SECRETS
+.credentials.yml
 
 # macOS
 .DS_Store
@@ -10,11 +9,19 @@ coverage.out
 # WINDOWS
 *.jpg:Zone.Identifier
 
-# Ignore binaries
-**/bin/crypto-miner-manager
+# RUN (BINARIES)
+**/bin/crypto-minor-manager
+**/bin/crypto-wallet-status
+**/bin/your-metasol-nft-private
+**/bin/catch-microservice
+**/bin/data-crunch-engine
 
-# Ignore test coverage
+# TEST
 **/test/test_coverage.txt
 
-# Ignore binary used for docker build
-**/build-push/crypto-miner-manager
+# BUILD (BINARIES CREATED DURING DOCKER BUILD)
+**/build/crypto-minor-manager
+**/build/crypto-wallet-status
+**/build/your-metasol-nft-private
+**/build/catch-microservice
+**/build/data-crunch-engine
