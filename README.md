@@ -1,13 +1,11 @@
 # CRYPTO MINER MANAGER
 
 [![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/crypto-miner-manager)](https://github.com/JeffDeCola/crypto-miner-manager/tags)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 [![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/crypto-miner-manager.svg)](https://pkg.go.dev/github.com/JeffDeCola/crypto-miner-manager)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/crypto-miner-manager)](https://goreportcard.com/report/github.com/JeffDeCola/crypto-miner-manager)
-[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/e4c4da438116f22cb411/maintainability)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/maintainability)
-[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/crypto-miner-manager/issues)
 [![Docker Pulls](https://badgen.net/docker/pulls/jeffdecola/crypto-miner-manager?icon=docker&label=pulls)](https://hub.docker.com/r/jeffdecola/crypto-miner-manager/)
-[![License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
-[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 ```text
 ** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON **
@@ -30,9 +28,8 @@ Table of Contents
 
 Documentation and Reference
 
-* The
-  [crypto-miner-manager](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
-  docker image on DockerHub
+* [crypto-miner-manager](https://hub.docker.com/r/jeffdecola/crypto-miner-manager)
+  docker image on dockerhub
 * [crypto-wallet-status](https://github.com/JeffDeCola/crypto-wallet-status)
 * This repos
   [github webpage](https://jeffdecola.github.io/crypto-miner-manager/)
@@ -43,7 +40,7 @@ Documentation and Reference
 
 Here is an overview of what we're going to do,
 
-![IMAGE - crypto-miner-manager-overview - IMAGE](docs/pics/crypto-miner-manager-overview.jpg)
+![IMAGE - crypto-miner-manager-overview - IMAGE](docs/pics/crypto-miner-manager-overview.svg)
 
 ## PREREQUISITES
 
